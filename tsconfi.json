@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2022", // or "esnext" for the latest features
+    "module": "commonjs", // or "esnext" if you're using ES modules (import/export)
+    "outDir": "./dist", // Where compiled JS files go
+    "rootDir": "./",    // Where your TS source files are
+    "strict": true,     // Recommended for better type safety
+    "esModuleInterop": true, // Recommended for better module interoperability
+    "skipLibCheck": true, // Often useful to skip type checking of declaration files (*.d.ts) in node_modules, which can sometimes cause issues like this
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2022"] // ✨ THIS IS THE CRUCIAL PART ✨: Include types for modern JS.
+                      // "es2015" is the minimum for Map/Set.
+                      // "es2022" or "esnext" are common for current Node.js apps.
+                      // If you were building for a browser, you'd add "dom": ["es2022", "dom"]
+  },
+  "include": [
+    "**/*.ts" // Tells TypeScript to include all .ts files in your project
+  ],
+  "exclude": [
+    "node_modules", // Exclude node_modules from direct compilation by TypeScript
+    "dist"          // Exclude your output directory
+  ]
+}
